@@ -44,20 +44,19 @@ class _MyFormScreenState extends State<MyFormScreen> {
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      Navigator.push(
+      Navigator.pushNamed(
         context,
-        MaterialPageRoute(
-          builder: (context) => OutputScreen(
-            username: _username,
-            password: _password,
-            email: _email,
-            rememberMe: _rememberMe,
-            gender: _gender,
-            country: _country,
-            age: _age,
-            selectedDate: _selectedDate,
-          ),
-        ),
+        '/output',
+        arguments: {
+          'username': _username,
+          'password': _password,
+          'email': _email,
+          'rememberMe': _rememberMe,
+          'gender': _gender,
+          'country': _country,
+          'age': _age,
+          'selectedDate': _selectedDate,
+        },
       );
     }
   }
